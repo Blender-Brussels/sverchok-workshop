@@ -38,18 +38,27 @@ https://github.com/Blender-Brussels/sverchok-workshop/blob/master/random-vertice
 Little bugs found:
  - Group functions works to group them. But have not really found out how to ungroup.
 
- 
- 
-timeline 
+
+
+
+---
+
+Timeline - animate sverchok parameters
+- hover over some parameter you want to animate
 - use 'i' to add keyframes (interpolation works)
-- node editor view updates animated values
-- 3D view : problemo...
+- the node-editor updates animated values when sliding through timeline
+- BUT the 3D-view is not updated ...
     - ViewerDraw node doesn't update values automatically
-    - BMeshViewer node neither
-    - 
+    - BMeshViewer node neither.
+
+this is a github issue concerning this topic :   https://github.com/nortikin/sverchok/issues/592
+in the discussion there is a reference to checkout a specific branch, enabling the live-update of animated parameters
+'git checkout origin/obj_in_liveupdate_mode' -- object_in nodes have a 'start/stop live update' button now
+render works, animation render too
+crashing blender when rendering animation (2.74 - sverchok commit 56ba7403220b4eb0f32fcefe4a765622c66c5c81)  was due to 'Current Frame' block in sverchok node tree -- i got rid of this in the uploaded example.
+
+you can try 'live_update_animation.blend'  which contains two animated parameters (height & scale of an extruded cube), which is rendered to a blender BMesh (so a 'real' blender object, which is rendered a is)
+
+---
+
 frankie : try blender 'Drivers'  ??
-
-animation slider ?   https://github.com/nortikin/sverchok/issues/592
-git checkout origin/obj_in_liveupdate_mode -- object_in nodes have a 'start/stop live update' button now
-render works, but rendering an animation crashes Blender hard... (2.74 - sverchok commit 56ba7403220b4eb0f32fcefe4a765622c66c5c81)
-
